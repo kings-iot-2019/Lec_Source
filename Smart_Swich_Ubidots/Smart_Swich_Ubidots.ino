@@ -1,14 +1,14 @@
-// Smart Light Controller
-// LED, CDS(Photo Resistor), Ubidots
+// Smart Switch
+// LED, Ubidots
 
 #include "UbidotsMicroESP8266.h"
-#define DEVICE  "led-control"  // Put here your Ubidots device label
-#define VARIABLE01  "led-value"  // Put here your Ubidots variable label
+#define DEVICE  "smartled"  // Put here your Ubidots device label
+#define VARIABLE01  "ledValue"  // Put here your Ubidots variable label
 
-#define TOKEN  "A1E-NPfOekvBf8qTvOs3RWj3TnPrMAKOF8"  // Put here your Ubidots TOKEN
+#define TOKEN  "A1E-btnEp0we6d27oA5sRLjlexPvxL02ro"  // Put here your Ubidots TOKEN
 #define WIFISSID "melon"
 #define PASSWORD "deitcs3217"
-#define LED_PIN D4 
+#define LED_PIN D2 
 
 Ubidots client(TOKEN);
 
@@ -16,7 +16,6 @@ void setup() {
     Serial.begin(115200);
     client.wifiConnection(WIFISSID, PASSWORD);
     pinMode(LED_PIN, OUTPUT);
-    digitalWrite(LED_PIN, 1);
     client.setDebug(true); // Uncomment this line to set DEBUG on
 }
 
